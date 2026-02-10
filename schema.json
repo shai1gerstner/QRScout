@@ -17,6 +17,10 @@
       "type": "number",
       "description": "The team number of the team using this form."
     },
+    "confVersion": {
+      "type": "string",
+      "description": "An extra field to follow config versioning."
+    },
     "floatingField": {
       "type": "object",
       "properties": {
