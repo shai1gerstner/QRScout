@@ -1,0 +1,428 @@
+{
+    "title": "QRScout",
+    "page_title": "FRC-Rebuilt",
+    "delimiter": "\t",
+    "teamNumber": 1024,
+    "confVersion": "2026Feb09",
+    "floatingField": {
+        "show": false,
+        "codeValue": "teamNumber"
+    },
+    "theme": {
+        "light": {
+            "background": "0 0% 100%",
+            "foreground": "0 0% 3.9%",
+            "card": "0 0% 100%",
+            "card_foreground": "0 0% 3.9%",
+            "popover": "0 0% 100%",
+            "popover_foreground": "0 0% 3.9%",
+            "primary": "240.0 71.3% 47.9%",
+            "primary_foreground": "0 85.7% 97.3%",
+            "secondary": "0 0% 96.1%",
+            "secondary_foreground": "0 0% 9%",
+            "muted": "0 0% 96.1%",
+            "muted_foreground": "0 0% 45.1%",
+            "accent": "0 0% 96.1%",
+            "accent_foreground": "0 0% 9%",
+            "destructive": "240 84.2% 60.2%",
+            "destructive_foreground": "240 0% 98%",
+            "border": "0 0% 89.8%",
+            "input": "0 0% 89.8%",
+            "ring": "240.0 71.3% 47.9%",
+            "chart_1": "12 76% 61%",
+            "chart_2": "173 58% 39%",
+            "chart_3": "197 37% 24%",
+            "chart_4": "43 74% 66%",
+            "chart_5": "27 87% 67%"
+        },
+        "dark": {
+            "background": "0 0% 3.9%",
+            "foreground": "0 0% 98%",
+            "card": "0 0% 3.9%",
+            "card_foreground": "0 0% 98%",
+            "popover": "0 0% 3.9%",
+            "popover_foreground": "0 0% 98%",
+            "primary": "240.0 71.3% 47.9%",
+            "primary_foreground": "0 85.7% 97.3%",
+            "secondary": "0 0% 14.9%",
+            "secondary_foreground": "0 0% 98%",
+            "muted": "0 0% 14.9%",
+            "muted_foreground": "0 0% 63.9%",
+            "accent": "0 0% 14.9%",
+            "accent_foreground": "0 0% 98%",
+            "destructive": "240 62.8% 30.6%",
+            "destructive_foreground": "240 0% 98%",
+            "border": "0 0% 14.9%",
+            "input": "0 0% 14.9%",
+            "ring": "240.0 71.3% 47.9%",
+            "chart_1": "220 70% 50%",
+            "chart_2": "160 60% 45%",
+            "chart_3": "30 80% 55%",
+            "chart_4": "280 65% 60%",
+            "chart_5": "340 75% 55%"
+        }
+    },
+    "sections": [
+        {
+            "name": "Prematch",
+            "fields": [
+                {
+                    "title": "Scouter Name",
+                    "description": "Enter the Scouter name.",
+                    "type": "text",
+                    "required": true,
+                    "code": "scouter",
+                    "formResetBehavior": "preserve",
+                    "defaultValue": ""
+                },
+                {
+                    "title": "Match Number",
+                    "description": "Enter the match number.",
+                    "type": "number",
+                    "required": true,
+                    "code": "matchNumber",
+                    "formResetBehavior": "increment",
+                    "defaultValue": 1
+                },
+                {
+                    "title": "Team Number",
+                    "description": "The team number of the robot you're scouting.",
+                    "type": "number",
+                    "required": true,
+                    "code": "teamNumber",
+                    "formResetBehavior": "reset",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "max": 19999
+                },
+                {
+                    "title": "Starting Position",
+                    "description": "The starting position of the robot.",
+                    "type": "select",
+                    "required": true,
+                    "code": "startPos",
+                    "formResetBehavior": "reset",
+                    "defaultValue": "",
+                    "choices": {
+                        "R1": "Red Outpost Side",
+                        "R2": "Red Middle",
+                        "R3": "Red Depot Side",
+                        "B1": "Blue Outpost Side",
+                        "B2": "Blue Middle",
+                        "B3": "Blue Depot Side"
+                    }
+                },
+                {
+                    "title": "No Show",
+                    "description": "Check if the robot did not show up for the match.",
+                    "type": "boolean",
+                    "required": false,
+                    "code": "noShow",
+                    "formResetBehavior": "reset",
+                    "defaultValue": false
+                }
+            ]
+        },
+        {
+            "name": "Autonomous",
+            "fields": [
+                {
+                    "title": "Auto - Moved?",
+                    "description": "Check if the robot moved during autonomous.",
+                    "type": "boolean",
+                    "required": false,
+                    "code": "autoMoved",
+                    "formResetBehavior": "reset",
+                    "defaultValue": false
+                },
+                {
+                    "title": "Auto - Robot Fuel scored",
+                    "description": "The amount of fuel scored in autoby the Robot",
+                    "type": "counter",
+                    "required": false,
+                    "code": "autoScored",
+                    "formResetBehavior": "reset",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "step": 1
+                },
+                {
+                    "title": "Auto - Robot Fuel shot and missed",
+                    "description": "The amount of fuel shot and missed in auto",
+                    "type": "counter",
+                    "required": false,
+                    "code": "autoMissed",
+                    "formResetBehavior": "reset",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "step": 1
+                },
+                {
+                    "title": "Auto - Fuel Delivered to Human",
+                    "description": "The amount of fuel given to the outpost",
+                    "type": "counter",
+                    "required": false,
+                    "code": "autoDelHuman",
+                    "formResetBehavior": "reset",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "step": 1
+                },
+                {
+                    "title": "Auto - Climbed Tower",
+                    "description": "The height the robot climbed in auto",
+                    "type": "select",
+                    "code": "autoClimbed",
+                    "required": false,
+                    "defaultValue": "No",
+                    "formResetBehavior": "reset",
+                    "choices": {
+                        "No": "Didn't Climb",
+                        "L1": "Level 1",
+                        "L2": "Level 2",
+                        "L3": "Level 3",
+                        "F": "Failed Climb"
+                    }
+                },
+                {
+                    "title": "Auto - Crossed into Neutral Zone?",
+                    "description": "Did and how the robot crossed into the Neutral Zone",
+                    "type": "select",
+                    "code": "autoCrossed",
+                    "required": false,
+                    "defaultValue": "No",
+                    "formResetBehavior": "reset",
+                    "choices": {
+                        "No": "Did not cross to neutral zone",
+                        "Trench": "Crossed through Trench",
+                        "Bump": "Crossed through Bump",
+                        "Both": "Crossed through both"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Teleop",
+            "fields": [               
+                {
+                    "title": "TeleOp - Robot Fuel Scored",
+                    "description": "The amount of fuel scored in teleop (by the robot)",
+                    "type": "counter",
+                    "required": false,
+                    "code": "telRobScored",
+                    "formResetBehavior": "reset",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "step": 1
+                },
+                {
+                    "title": "TeleOp - Robot Fuel Shot and Missed",
+                    "description": "The amount of fuel shoot and missed in teleop (by the robot)",
+                    "type": "counter",
+                    "required": false,
+                    "code": "telRobMissed",
+                    "formResetBehavior": "reset",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "step": 1
+                },
+                {
+                    "title": "TeleOp - Fuel Delivered to Human",
+                    "description": "The amount of fuel given to the outpost",
+                    "type": "counter",
+                    "required": false,
+                    "code": "telDelHuman",
+                    "formResetBehavior": "reset",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "step": 1
+                },
+                {
+                    "title": "TeleOp - Robot activity while Hub not active",
+                    "description": "What did the Robot do when the hub was not active",
+                    "type": "select",
+                    "code": "HubNotActive",
+                    "required": false,
+                    "defaultValue": "No",
+                    "formResetBehavior": "reset",
+                    "choices": {
+                        "Nothing": "Nothing",
+                        "L1": "Collected Fuel and brought to its zone",
+                        "L2": "Collected Fuel and brought to the Human outpost",
+                        "L3": "Played defense - cross to the other Alliance zone",
+                        "L4": "Other - (Please include in the post game comment"
+                    }
+                },
+                {
+                    "title": "Was Robot Defended by Other Alliance?",
+                    "type": "boolean",
+                    "required": false,
+                    "code": "robDefended",
+                    "formResetBehavior": "reset",
+                    "defaultValue": false
+                }
+            ]
+        },
+        {
+            "name": "Endgame",
+            "fields": [
+                {
+                    "title": "Tele Climbed Tower",
+                    "type": "select",
+                    "required": false,
+                    "code": "telClimbed",
+                    "formResetBehavior": "reset",
+                    "defaultValue": "No",
+                    "choices": {
+                        "No": "Didn't Climb",
+                        "L1": "Level 1",
+                        "L2": "Level 2",
+                        "L3": "Level 3",
+                        "F": "Failed Climb"
+                    }
+                },
+                {
+                    "title": "Climbed From",
+                    "type": "select",
+                    "required": false,
+                    "code": "climbedFrom",
+                    "formResetBehavior": "reset",
+                    "defaultValue": "No",
+                    "choices": {
+                        "No": "Didn't Climb",
+                        "A1": "Area 1",
+                        "A2": "Area 2",
+                        "A3": "Area 3",
+                        "A4": "Area 4",
+                        "F": "Failed Climb"
+                    }
+                },
+                {
+                    "title": "Fuel Collected From Ground",
+                    "description": "Collected fuel from the ground",
+                    "type": "boolean",
+                    "defaultValue": false,
+                    "code": "collecGround",
+                    "formResetBehavior": "reset",
+                    "required": false
+                },
+                {
+                    "title": "Fuel Collected From Depot",
+                    "description": "Collected fuel from the depot",
+                    "type": "boolean",
+                    "defaultValue": false,
+                    "code": "collecDepot",
+                    "formResetBehavior": "reset",
+                    "required": false
+                },
+                {
+                    "title": "Fuel Collected From Human Player",
+                    "description": "Collected fuel from the human player",
+                    "type": "boolean",
+                    "defaultValue": false,
+                    "code": "collectHuman",
+                    "formResetBehavior": "reset",
+                    "required": false
+                },
+                {
+                    "title": "Died?",
+                    "type": "boolean",
+                    "required": false,
+                    "code": "died",
+                    "formResetBehavior": "reset",
+                    "defaultValue": false
+                },
+                {
+                    "title": "Tipped/Fell Over?",
+                    "type": "boolean",
+                    "required": false,
+                    "code": "fellOver",
+                    "formResetBehavior": "reset",
+                    "defaultValue": false
+                }
+            ]
+        },
+        {
+            "name": "Postmatch",
+            "fields": [
+                {
+                    "title": "Offense Skill",
+                    "description": "0-5 Subjective opinion of offensive skills",
+                    "type": "range",
+                    "required": false,
+                    "code": "offenseSkill",
+                    "formResetBehavior": "reset",
+                    "defaultValue": 0,
+                    "min": 1,
+                    "max": 5,
+                    "step": 1
+                },
+                {
+                    "title": "Defensive Skill",
+                    "description": "0-5 Subjective opinion of defensive skills",
+                    "type": "range",
+                    "required": false,
+                    "code": "defenseSkill",
+                    "formResetBehavior": "reset",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "max": 5,
+                    "step": 1
+                },
+                {
+                    "title": "Fouls",
+                    "description": "Total number of Fouls during the match",
+                    "type": "counter",
+                    "required": false,
+                    "code": "fouls",
+                    "formResetBehavior": "reset",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "step": 1
+                },
+                {
+                    "title": "Yellow/Red Card",
+                    "description": "Did the Team receive a Yellow of Red card during the match?",
+                    "type": "select",
+                    "required": false,
+                    "code": "yellowRed",
+                    "formResetBehavior": "reset",
+                    "defaultValue": "No Card",
+                    "choices": {
+                        "No Card": "No Card",
+                        "Yellow": "Yellow Card",
+                        "Red": "Red Card"
+                    }
+                },
+                {
+                    "title": "Final Alliance Score",
+                    "description": "The score the Alliance received in the end of the match",
+                    "type": "number",
+                    "required": false,
+                    "code": "finalScore",
+                    "formResetBehavior": "reset",
+                    "defaultValue": 0
+                },
+                {
+                    "title": "Did the Alliance win?",
+                    "type": "boolean",
+                    "required": false,
+                    "code": "allianceWin",
+                    "formResetBehavior": "reset",
+                    "defaultValue": false
+                },
+
+                {
+                    "title": "Comments",
+                    "type": "text",
+                    "required": false,
+                    "code": "comments",
+                    "formResetBehavior": "reset",
+                    "defaultValue": "",
+                    "min": 0,
+                    "max": 100
+                }
+            ]
+        }
+    ]
+}

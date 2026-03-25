@@ -1,0 +1,42 @@
+const defaultStyle = {
+  fill: '#ef3340',
+  fillOpacity: 1,
+};
+
+const strokeStyle = {
+  stroke: '#000000',
+  strokeWidth: 0,
+};
+
+const style2 = {
+  ...defaultStyle,
+  fontSize: '74.7706px',
+  fontFamily: 'SF Sports Night',
+  ...strokeStyle,
+};
+
+const style3 = {
+  ...defaultStyle,
+  ...strokeStyle,
+  strokeDasharray: 'none',
+};
+
+const style4 = {
+  ...defaultStyle,
+  fontSize: '21.0016px',
+  fontFamily: 'SF Sports Night NS',
+  ...strokeStyle,
+};
+
+import logo from '../assets/1024-kil-a-bytes.png';
+
+export function Logo() {
+  return (
+    <img
+      src={logo}
+      alt="QRScout Logo"
+      style={{ height: 148, marginLeft:72, transform: 'translateY(-32px)' }}
+    />
+  );
+}
+
